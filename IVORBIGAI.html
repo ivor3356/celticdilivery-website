@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Travel Reservation Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 40px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            text-align: center;
+            color: #1a75ff;
+            margin-bottom: 30px;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #444;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        select,
+        input[type="date"],
+        input[type="number"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #444;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        select:focus,
+        input[type="date"]:focus,
+        input[type="number"]:focus,
+        textarea:focus {
+            border-color: #1a75ff;
+        }
+
+        select {
+            appearance: none;
+            -webkit-appearance: none;
+            padding-right: 30px;
+            background: url("https://image.flaticon.com/icons/png/128/747/747310.png") no-repeat center right;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .radio-label {
+            font-weight: normal;
+        }
+
+        .mandatory::before {
+            content: "* ";
+            color: #ff3333;
+        }
+
+        .submit-button {
+            width: 100%;
+            background-color: #1a75ff;
+            color: #fff;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background-color: #0052cc;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .terms-and-conditions {
+            display: flex;
+            align-items: center;
+            animation: fadeIn 1.5s ease;
+        }
+
+        .terms-and-conditions input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .terms-and-conditions label {
+            font-size: 14px;
+        }
+
+        .form-img {
+            text-align: center;
+        }
+
+        .form-img img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-img">
+            <img src="https://yourdomain.com/images/travel_image.jpg" alt="Travel Image">
+        </div>
+        <h1>Travel Reservation Form</h1>
+        <form action="submit_reservation.php" method="post">
+            <div class="form-group">
+                <label for="name" class="mandatory">Full Name:</label>
+                <input type="text" id="name" name="name" required placeholder="First Name Last Name">
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="mandatory">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="tour-package">Select Tour Package:</label>
+                <select id="tour-package" name="tour-package">
+                    <option value="package1">Package 1</option>
+                    <option value="package2">Package 2</option>
+                    <option value="package3">Package 3</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="arrival-date" class="mandatory">Arrival Date:</label>
+                <input type="date" id="arrival-date" name="arrival-date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="number-of-persons" class="mandatory">Number of Persons:</label>
+                <input type="number" id="number-of-persons" name="number-of-persons" required>
+            </div>
+
+            <div class="form-group">
+                <label>What do you want to avail?</label><br>
+                <input type="radio" id="boarding" name="avail-option" value="boarding">
+                <label for="boarding" class="radio-label">Boarding</label><br>
+
+                <input type="radio" id="flooding" name="avail-option" value="flooding">
+                <label for="flooding" class="radio-label">Flooding</label><br>
+
+                <input type="radio" id="sightseeing" name="avail-option" value="sightseeing">
+                <label for="sightseeing" class="radio-label">Sight Seeing</label>
+            </div>
+
+            <div class="form-group">
+                <label for="discount-code">Discount Coupon Code:</label>
+                <input type="text" id="discount-code" name="discount-code">
+            </div>
+
+            <div class="form-group terms-and-conditions">
+                <input type="checkbox" id="terms-and-conditions" name="terms-and-conditions" required>
+                <label for="terms-and-conditions">I agree to the terms and conditions</label>
+            </div>
+
+            <input type="submit" value="Submit" class="submit-button">
+        </form>
+    </div>
+</body>
+</html>
